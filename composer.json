@@ -1,0 +1,17 @@
+{
+    "name": "php/dex",
+    "description": "Mon livre d'or",
+    "autoload": {
+        "psr-4": {
+            "App\\": "class/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Moi"
+        }
+    ],
+    "require": {}
+}
+
+
