@@ -2,6 +2,10 @@
 
 Ce projet à pour but de mettre en place les connaissances acquises en cours de programmation php POO MYSQL.
 
+##  Utilisation
+
+Ce projet de vous permetre de créer des pokemons, de les modifier, de les supprimer, de les afficher, de les rechercher, de les trier.
+
 ##  Contacter
 
 mail : thibaultperrouas8@gmail.com
