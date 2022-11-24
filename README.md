@@ -4,7 +4,7 @@ Ce projet à pour but de mettre en place les connaissances acquises en cours de 
 
 ##  Utilisation
 
-Ce projet de vous permetre de créer des pokemons, de les modifier, de les supprimer, de les afficher, de les rechercher, de les trier.
+Ce projet vous permetra de créer des pokemons, de les modifier, de les supprimer, de les afficher, de les rechercher et de les trier.
 
 ##  Contacter
 
