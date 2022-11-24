@@ -8,7 +8,7 @@ mail : thibaultperrouas8@gmail.com
 
 ##  Dons
 
-Si vous souhaitez soutenir financièrement le projet.
+Si vous souhaitez soutenir financièrement le projet.<br>
 Tous les fonds reçus sont considérés comme un don pour soutenir le projet.
 
 Bitcoin address : bc1q9hwgxx3r5gc426g4tcpfy4vgju8k94weyn0e09
