@@ -1,6 +1,7 @@
 <?php
 
-namespace php\dex;
+namespace Pokedex\Class;
+
 
 use PDO;
 
@@ -13,7 +14,7 @@ class Database
    * @var string
    */
   private $host = 'localhost';
-  private $dbname = 'pokedex';
+  private $dbname = 'db_pokedex';
   private $user = 'root';
   private $password = 'root';
   private $port = 3306;
@@ -29,3 +30,6 @@ class Database
 
 
 }
+
+$conn = new Database();
+var_dump($conn->getPdo());
