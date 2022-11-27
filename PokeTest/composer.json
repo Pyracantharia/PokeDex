@@ -3,7 +3,7 @@
     "description": "Mon livre d'or",
     "autoload": {
         "psr-4": {
-            "Pokedex\\": "Class/"
+            "Pok\\": "Class/"
         }
     },
     "authors": [

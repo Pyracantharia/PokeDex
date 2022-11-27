@@ -1,6 +1,6 @@
 <?php
 
-namespace Pokedex\Class;
+namespace Pok;
 
 
 use PDO;

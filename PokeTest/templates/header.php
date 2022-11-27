@@ -25,7 +25,7 @@ use Pokedex\images\favicon;
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="">
                 
                 PhPDex
                 <img src="https://cdn.discordapp.com/attachments/1019615597589450863/1045387186578669639/Dexicon.png" class="w-25 p-3" >

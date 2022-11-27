@@ -1,12 +1,20 @@
 <?php
 
 
-require 'templates/header.php';
+
+//require 'templates/header.php';
 ?>
 <main>
+
+
+
+
+
+
+
 
 </main>
 
 <?php
-require 'templates/footer.php';
+//require 'templates/footer.php';
 ?>
