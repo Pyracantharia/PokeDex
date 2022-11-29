@@ -5,9 +5,10 @@ namespace Pok;
 use PDO;
 
 
-class QueryBuilder
+class SchearchPokemon
 {
 
+    
 }
 
 

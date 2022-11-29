@@ -16,7 +16,7 @@ class Database
   private $host = 'localhost';
   private $dbname = 'db_pokedex';
   private $user = 'root';
-  private $password = 'root';
+  private $password = '';
   private $port = 3306;
   private $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

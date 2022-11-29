@@ -2,7 +2,7 @@
 
 
 
-//require 'templates/header.php';
+require 'template/header.php';
 ?>
 <main>
 
@@ -16,5 +16,5 @@
 </main>
 
 <?php
-//require 'templates/footer.php';
+require 'template/footer.php';
 ?>
