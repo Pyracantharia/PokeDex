@@ -1,7 +1,6 @@
 <?php
 
-namespace Pok;
-
+namespace Pokedex\Utils;
 
 use PDO;
 
@@ -14,22 +13,22 @@ class Database
    * @var string
    */
   private $host = 'localhost';
-  private $dbname = 'db_pokedex';
+  private $dbname = 'coursf2i';
   private $user = 'root';
-  private $password = '';
+  private $password = 'root';
   private $port = 3306;
   private $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
   ];
 
+  /**
+   * J'appelle PDO et je retourne PDO
+   *
+   * @return PDO
+   */
   public function getPdo(): PDO
   {
     return new PDO("mysql:host=$this->host:$this->port;dbname=$this->dbname", $this->user, $this->password, $this->options);
   }
-
-
 }
-
-$conn = new Database();
-var_dump($conn->getPdo());

@@ -1,17 +1,15 @@
 {
-    "name": "php/dex",
-    "description": "Mon livre d'or",
+    "name": "livredor/app",
     "autoload": {
         "psr-4": {
-            "Pok\\": "Class/"
+            "Pokedex\\": "class/"
         }
     },
     "authors": [
         {
-            "name": "Moi"
+            "name": "Thibault",
+            "email": "thibaultperrouas8@gmail.com"
         }
     ],
     "require": {}
 }
-
-
