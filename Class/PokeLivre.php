@@ -17,6 +17,8 @@ class PokeLivre
   private $id;
   private $types;
 
+  
+
   public function setUsername(string $username)
   {
     $this->username = $username;
@@ -94,6 +96,14 @@ class PokeLivre
   }
   public function getCouleur(): string {
     return $this->couleur;
+  }
+
+  public function setImage(string $image)
+  {
+    $this->image = $image;
+  }
+  public function getImage(): string {
+    return $this->image;
   }
 
 

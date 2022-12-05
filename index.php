@@ -182,7 +182,7 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
     ?>
 
       <h1>Laissez moi un message</h1>
-      <form method="POST" action="addMessage.php">
+      <form method="POST" action="addMessage.php" enctype="multipart/form-data">
         <div class="form-group">
           <label for="username">Votre pseudo</label>
           <input type="text" value="<?= isset($_SESSION['pseudo']) ? htmlspecialchars($_SESSION['pseudo']) : '' ?>" name="pseudo" class="form-control" id="username" placeholder="Votre pseudo">
@@ -243,6 +243,7 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
           <h5 class="card-title"><?= htmlspecialchars($data->getCouleur()) ?>   Couleur</h5>
           <h6 class="card-subtitle mb-2 text-muted">Le <?= $data->getDate()->format('d/m/Y à H:i:s') ?></h6>
           <p class="card-text"> <?= htmlspecialchars($data->getContenu()) ?></p>
+          <img src="image/<?= $data->getImage() ?>" alt="image" width="200px">
           
 
     

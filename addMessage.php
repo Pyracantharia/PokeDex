@@ -16,7 +16,7 @@ $db = new Database();
  * Je vérifié si les POST existent
  */
 
-if(isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_POST['num'], $_POST['taille'], $_POST['poids'], $_POST['talent'], $_POST['couleur'], $_POST['image'])) {
+if(isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_POST['num'], $_POST['taille'], $_POST['poids'], $_POST['talent'], $_POST['couleur'], $_FILES['image'])) {
     $error = false;
     /**
      * Je trim le pseudo et le message c'est à dire que j'enlève les espace avant et après
@@ -32,7 +32,15 @@ if(isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_
     $couleur = trim($_POST['couleur']);
     date_default_timezone_set('Europe/Paris'); 
     $date = date('Y-m-d H:i:s');
-    $image = $_POST['image'];
+    $image = $_FILES['image']['name'];
+    
+    $temporaire = $_FILES['image']['tmp_name'];
+    $path = "image/$image";
+
+
+
+   
+  
     
 
     
@@ -90,7 +98,18 @@ if(isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_
     }
     if(mb_strlen($couleur) > 29) {
         $error = true;
-    }    
+    }
+    //verifier taille image
+    if($_FILES['image']['size'] < 1000000) {
+        move_uploaded_file($temporaire, $path);
+        
+    } else {
+        $error = true;
+    }
+
+
+
+
     /**
      *  Si y a au moins une erreur ça rentre dans la fonction
      */
