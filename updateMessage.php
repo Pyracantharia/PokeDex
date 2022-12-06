@@ -38,7 +38,7 @@ if (isset($_GET['id'])) {
         /**
          * Memes condition que le addMessage
          */
-        if (isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_POST['num'], $_POST['taille'], $_POST['poids'], $_POST['talent'], $_POST['couleur'],$_FILES['image'])) {
+        if (isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_POST['num'], $_POST['taille'], $_POST['poids'], $_POST['talent'], $_POST['couleur'])) {
             $errorForm = false;
             $username = trim($_POST['pseudo']);
             $contenu = trim($_POST['message']);
@@ -52,9 +52,7 @@ if (isset($_GET['id'])) {
             date_default_timezone_set('Europe/Paris'); // On défini la timezone
             $date = date('Y-m-d H:i:s');
 
-            $image = $_FILES['image']['name'];
-            $temporaire = $_FILES['image']['tmp_name'];
-            $path = "image/$image";
+
 
 
 
@@ -103,19 +101,7 @@ if (isset($_GET['id'])) {
             }
 
 
-            // supprimer image du dossier
-            $query = $db->getPdo()->prepare("SELECT image FROM pokedex WHERE id = :id");
-            $query->execute([
-                'id' => $id
-            ]);
-            $image = $query->fetch();
-            unlink('image/'.$image['image']);
-            //supprimer image de la base de données
-            $query = $db->getPdo()->prepare("UPDATE pokedex SET image = :image WHERE id = :id");
-            $query->execute([
-                'image' => $image,
-                'id' => $id
-            ]);
+
             
 
 
@@ -129,7 +115,7 @@ if (isset($_GET['id'])) {
                 header("Location: index.php?action=update&id=$id&error=1");
                 exit();
             } else {
-                $query = $db->getPdo()->prepare("UPDATE pokedex SET username = :username, contenu = :contenu, date = :date, nom = :nom, types = :types, num = :num, taille = :taille, poids = :poids, talent = :talent, couleur = :couleur, image = :image WHERE id = :id");
+                $query = $db->getPdo()->prepare("UPDATE pokedex SET username = :username, contenu = :contenu, date = :date, nom = :nom, types = :types, num = :num, taille = :taille, poids = :poids, talent = :talent, couleur = :couleur WHERE id = :id");
                 $query->execute([
                     'id' => $id,
                     'username' => $username,
@@ -143,8 +129,8 @@ if (isset($_GET['id'])) {
                     'taille' => $taille,
                     'poids' => $poids,
                     'talent' => $talent,
-                    'couleur' => $couleur,
-                    'image' => $image
+                    'couleur' => $couleur
+                    
                     
 
                     

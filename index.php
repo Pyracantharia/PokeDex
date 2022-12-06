@@ -179,8 +179,7 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
           <textarea name="talent" class="form-control" id="talent" rows="3"><?= isset($_SESSION['talent']) ? (is_numeric($_SESSION['talent'])) : '' ?></textarea>
           <label for="couleur">La couleur</label>
           <textarea name="couleur" class="form-control" id="couleur" rows="3"><?= isset($_SESSION['couleur']) ? (is_numeric($_SESSION['couleur'])) : '' ?></textarea>
-          Image: <input required type="file" name="image" id="image"><br>
-        </div>
+         
 
         
         <button type="submit" class="btn btn-primary mt-3">Modifier</button>
