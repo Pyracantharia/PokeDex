@@ -15,7 +15,7 @@ require 'Class/PokeLivre.php';
 session_start();
 $title = "Accueil";
 
-require 'templates/header.php';
+require 'template/header.php';
 
 /**
  * Initialisation des variables d'error, de succes...
@@ -33,6 +33,15 @@ $parPage = 5;
  */
 
 if (isset($_GET['success']) && $_GET['success'] === '1') {
+  echo "  <script>
+  PlaySound = function () {
+              var audio = new Audio('pokesong.mp3');
+              audio.loop = false;
+              audio.play(); 
+          }
+          PlaySound();
+    </script>";
+
   $success = "Votre message a bien été enregistré";
 }
 if (isset($_GET['update']) && $_GET['update'] === '1') {
@@ -273,5 +282,5 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
 </main>
 
 <?php
-require 'templates/footer.php';
+require 'template/footer.php';
 ?>

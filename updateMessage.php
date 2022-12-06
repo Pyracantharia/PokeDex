@@ -38,7 +38,7 @@ if (isset($_GET['id'])) {
         /**
          * Memes condition que le addMessage
          */
-        if (isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_POST['num'], $_POST['taille'], $_POST['poids'], $_POST['talent'], $_POST['couleur'])) {
+        if (isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_POST['num'], $_POST['taille'], $_POST['poids'], $_POST['talent'], $_POST['couleur'],$_FILES['image'])) {
             $errorForm = false;
             $username = trim($_POST['pseudo']);
             $contenu = trim($_POST['message']);
@@ -51,7 +51,13 @@ if (isset($_GET['id'])) {
             $couleur = trim($_POST['couleur']);
             date_default_timezone_set('Europe/Paris'); // On défini la timezone
             $date = date('Y-m-d H:i:s');
-            $image = $_POST['image'];
+
+            $image = $_FILES['image']['name'];
+            $temporaire = $_FILES['image']['tmp_name'];
+            $path = "image/$image";
+
+
+
 
 
             if (empty($username) && empty($contenu) && empty($nom) && empty($types) && empty($num) && empty($taille) && empty($poids) && empty($talent) && empty($couleur)) {
@@ -94,8 +100,28 @@ if (isset($_GET['id'])) {
             }
             if(mb_strlen($couleur) > 29) {
                 $error = true;
-            }    
+            }
 
+
+            // supprimer image du dossier
+            $query = $db->getPdo()->prepare("SELECT image FROM pokedex WHERE id = :id");
+            $query->execute([
+                'id' => $id
+            ]);
+            $image = $query->fetch();
+            unlink('image/'.$image['image']);
+            //supprimer image de la base de données
+            $query = $db->getPdo()->prepare("UPDATE pokedex SET image = :image WHERE id = :id");
+            $query->execute([
+                'image' => $image,
+                'id' => $id
+            ]);
+            
+
+
+
+                        
+    
             if ($errorForm) {
                 /**
                  * Je renvoie l'id en paramètre pour garder la modification afin d'eviter que ça ramene dans l'insertion
@@ -119,6 +145,9 @@ if (isset($_GET['id'])) {
                     'talent' => $talent,
                     'couleur' => $couleur,
                     'image' => $image
+                    
+
+                    
                 ]);
                 header("Location: index.php?update=1");
                 exit();
