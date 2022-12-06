@@ -46,13 +46,13 @@ class PokeLivre
     return $this->nom;
   }
 
-  public function setTypes(string $types)
+  public function setTypesP(string $types)
   {
-    $this->types = $types;
+    $this->typesP = $typesP;
   }
 
-  public function getTypes(): string {
-    return $this->types;
+  public function getTypesP(): string {
+    return $this->typesP;
   }
   
   public function setNum(int $num)

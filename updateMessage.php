@@ -38,12 +38,12 @@ if (isset($_GET['id'])) {
         /**
          * Memes condition que le addMessage
          */
-        if (isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_POST['num'], $_POST['taille'], $_POST['poids'], $_POST['talent'], $_POST['couleur'])) {
+        if (isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['typesP'], $_POST['num'], $_POST['taille'], $_POST['poids'], $_POST['talent'], $_POST['couleur'])) {
             $errorForm = false;
             $username = trim($_POST['pseudo']);
             $contenu = trim($_POST['message']);
             $nom = trim($_POST['nom']);
-            $types = trim($_POST['types']);
+            $typesP = trim($_POST['typesP']);
             $num = trim($_POST['num']);
             $taille = trim($_POST['taille']);
             $poids = trim($_POST['poids']);
@@ -58,7 +58,7 @@ if (isset($_GET['id'])) {
 
 
 
-            if (empty($username) && empty($contenu) && empty($nom) && empty($types) && empty($num) && empty($taille) && empty($poids) && empty($talent) && empty($couleur)) {
+            if (empty($username) && empty($contenu) && empty($nom) && empty($typesP) && empty($num) && empty($taille) && empty($poids) && empty($talent) && empty($couleur)) {
                 $errorForm = true;
             }
 
@@ -115,7 +115,7 @@ if (isset($_GET['id'])) {
                 header("Location: index.php?action=update&id=$id&error=1");
                 exit();
             } else {
-                $query = $db->getPdo()->prepare("UPDATE pokedex SET username = :username, contenu = :contenu, date = :date, nom = :nom, types = :types, num = :num, taille = :taille, poids = :poids, talent = :talent, couleur = :couleur WHERE id = :id");
+                $query = $db->getPdo()->prepare("UPDATE pokedex SET username = :username, contenu = :contenu, date = :date, nom = :nom, typesP = :typesP, num = :num, taille = :taille, poids = :poids, talent = :talent, couleur = :couleur WHERE id = :id");
                 $query->execute([
                     'id' => $id,
                     'username' => $username,
@@ -124,7 +124,7 @@ if (isset($_GET['id'])) {
                     'nom' => $nom,
                     'date' => $date,
                     'nom' => $nom,
-                    'types' => $types,
+                    'typesP' => $typesP,
                     'num' => $num,
                     'taille' => $taille,
                     'poids' => $poids,

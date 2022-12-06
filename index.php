@@ -165,10 +165,27 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
         <div class="form-group mt-3">
           <label for="message">Votre message</label>
           <textarea name="message" class="form-control" id="message" rows="3"><?= htmlspecialchars($getData->contenu) ?></textarea>
-          <label for="nom">Le nom</label>
-          <textarea name="nom" class="form-control" id="message" rows="3"><?= isset($_SESSION['nom']) ? htmlspecialchars($_SESSION['nom']) : '' ?></textarea>
+          <label for="username">Le nom</label>
+          <input type="text" value="<?= isset($_SESSION['nom']) ? htmlspecialchars($_SESSION['nom']) : '' ?>" name="nom" class="form-control" id="nom" placeholder="Le nom">
           <label for="types">Le type</label>
-          <textarea name="types" class="form-control" id="types" rows="3"><?= isset($_SESSION['types']) ? htmlspecialchars($_SESSION['types']) : '' ?></textarea>
+          <div class="form-floating">
+            <select name="typesP" class="form-select" id="typesP">
+            
+              <option selected>Voir les types Phy</option>
+              <option value="Acier">Acier</option>
+              <option value="Combat">Combat</option>
+              <option value="Insecte">Insecte</option>
+              <option value="Normal">Normal</option>
+              <option value="Poison">Poison</option>
+              <option value="Roche">Roche</option>
+              <option value="Sol">Sol</option>
+              <option value="Spectre">Spectre</option>
+              <option value="Vol">Vol</option>
+              <?= isset($_SESSION['typesP']) ? htmlspecialchars($_SESSION['typesP']) : '' ?>
+            </select>
+            <label for="floatingSelect">Choissir un type physique</label>
+          </div>
+
           <label for="num">Le numéro national</label>
           <textarea name="num" class="form-control" id="num" rows="3"><?= isset($_SESSION['num']) ? (is_numeric($_SESSION['num'])) : '' ?></textarea>
           <label for="taille">La taille</label>
@@ -179,10 +196,10 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
           <textarea name="talent" class="form-control" id="talent" rows="3"><?= isset($_SESSION['talent']) ? (is_numeric($_SESSION['talent'])) : '' ?></textarea>
           <label for="couleur">La couleur</label>
           <textarea name="couleur" class="form-control" id="couleur" rows="3"><?= isset($_SESSION['couleur']) ? (is_numeric($_SESSION['couleur'])) : '' ?></textarea>
-         
 
-        
-        <button type="submit" class="btn btn-primary mt-3">Modifier</button>
+
+
+          <button type="submit" class="btn btn-primary mt-3">Modifier</button>
 
       </form>
     <?php
@@ -199,10 +216,50 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
         <div class="form-group mt-3">
           <label for="message">Votre message</label>
           <textarea name="message" class="form-control" id="message" rows="3"><?= isset($_SESSION['message']) ? htmlspecialchars($_SESSION['message']) : '' ?></textarea>
-          <label for="message">Le nom</label>
-          <textarea name="nom" class="form-control" id="message" rows="3"><?= isset($_SESSION['nom']) ? htmlspecialchars($_SESSION['nom']) : '' ?></textarea>
+
+
+          <label for="username">Le nom</label>
+          <input type="text" value="<?= isset($_SESSION['nom']) ? htmlspecialchars($_SESSION['nom']) : '' ?>" name="nom" class="form-control" id="nom" placeholder="Le nom">
+
+
           <label for="types">Le type</label>
-          <textarea name="types" class="form-control" id="types" rows="3"><?= isset($_SESSION['types']) ? htmlspecialchars($_SESSION['types']) : '' ?></textarea>
+          <div class="form-floating">
+            <select name="typesP" class="form-select" id="typesP">
+            
+              <option selected>Voir les types Physique</option>
+              <option value="Acier">Acier</option>
+              <option value="Combat">Combat</option>
+              <option value="Insecte">Insecte</option>
+              <option value="Normal">Normal</option>
+              <option value="Poison">Poison</option>
+              <option value="Roche">Roche</option>
+              <option value="Sol">Sol</option>
+              <option value="Spectre">Spectre</option>
+              <option value="Vol">Vol</option>
+              <?= isset($_SESSION['typesP']) ? htmlspecialchars($_SESSION['typesP']) : '' ?>
+            </select>
+            <label for="floatingSelect">Choissir un type physique</label>
+          </div>
+
+          <label for="types">Le type</label>
+          <div class="form-floating">
+            <select name="typesP" class="form-select" id="typesP">
+            
+              <option selected>Voir les types</option>
+              <option value="Acier">Acier</option>
+              <option value="Combat">Combat</option>
+              <option value="Insecte">Insecte</option>
+              <option value="Normal">Normal</option>
+              <option value="Poison">Poison</option>
+              <option value="Roche">Roche</option>
+              <option value="Sol">Sol</option>
+              <option value="Spectre">Spectre</option>
+              <option value="Vol">Vol</option>
+              <?= isset($_SESSION['typesP']) ? htmlspecialchars($_SESSION['typesP']) : '' ?>
+            </select>
+            <label for="floatingSelect">Choissir un type physique</label>
+          </div>
+
           <label for="num">Le numéro national</label>
           <textarea name="num" class="form-control" id="num" rows="3"><?= isset($_SESSION['num']) ? (is_numeric($_SESSION['num'])) : '' ?></textarea>
           <label for="taille">La taille</label>
@@ -242,20 +299,20 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
       <div class="card mb-4">
         <div class="card-body">
           <h5 class="card-title"><?= htmlspecialchars($data->getUsername()) ?></h5>
-          <h5 class="card-title"><?= htmlspecialchars($data->getNom()) ?>   Nom </h5>
-          <h5 class="card-title"><?= htmlspecialchars($data->getTypes()) ?>   Types</h5>
-          <h5 class="card-title"><?= htmlspecialchars($data->getNum()) ?>    Numéro</h5>
-          <h5 class="card-title"><?= htmlspecialchars($data->getTaille()) ?>   Taille </h5>
-          <h5 class="card-title"><?= htmlspecialchars($data->getPoids()) ?>  Poids</h5>
-          <h5 class="card-title"><?= htmlspecialchars($data->getTalent()) ?>   Talent</h5>
-          <h5 class="card-title"><?= htmlspecialchars($data->getCouleur()) ?>   Couleur</h5>
+          <h5 class="card-title"><?= htmlspecialchars($data->getNom()) ?> Nom </h5>
+          <h5 class="card-title"><?= htmlspecialchars($data->getTypesP()) ?> Types Physique</h5>
+          <h5 class="card-title"><?= htmlspecialchars($data->getNum()) ?> Numéro</h5>
+          <h5 class="card-title"><?= htmlspecialchars($data->getTaille()) ?> Taille </h5>
+          <h5 class="card-title"><?= htmlspecialchars($data->getPoids()) ?> Poids</h5>
+          <h5 class="card-title"><?= htmlspecialchars($data->getTalent()) ?> Talent</h5>
+          <h5 class="card-title"><?= htmlspecialchars($data->getCouleur()) ?> Couleur</h5>
           <h6 class="card-subtitle mb-2 text-muted">Le <?= $data->getDate()->format('d/m/Y à H:i:s') ?></h6>
           <p class="card-text"> <?= htmlspecialchars($data->getContenu()) ?></p>
           <img src="image/<?= $data->getImage() ?>" alt="image" width="200px">
-          
 
-    
-     
+
+
+
 
           <a href="deleteMessage.php?id=<?= $data->getId() ?>" style="color:red" class="card-link">Supprimer</a>
           <a href="?action=update&id=<?= $data->getId() ?>" class="card-link">Modifier</a>

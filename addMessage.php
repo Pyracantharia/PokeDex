@@ -16,7 +16,7 @@ $db = new Database();
  * Je vérifié si les POST existent
  */
 
-if(isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_POST['num'], $_POST['taille'], $_POST['poids'], $_POST['talent'], $_POST['couleur'], $_FILES['image'])) {
+if(isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['typesP'], $_POST['num'], $_POST['taille'], $_POST['poids'], $_POST['talent'], $_POST['couleur'], $_FILES['image'])) {
     $error = false;
     /**
      * Je trim le pseudo et le message c'est à dire que j'enlève les espace avant et après
@@ -24,7 +24,7 @@ if(isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_
     $username = trim($_POST['pseudo']);
     $contenu = trim($_POST['message']);
     $nom = trim($_POST['nom']);
-    $types = trim($_POST['types']);
+    $typesP = trim($_POST['typesP']);
     $num = trim($_POST['num']);
     $taille = trim($_POST['taille']);
     $poids = trim($_POST['poids']);
@@ -50,7 +50,7 @@ if(isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_
      * Je vérifie si les variable ne sont pas vides
      * Si un utilisateur à rentrer qqchose sinon ERROR
      */
-    if(empty($username) && empty($contenu) && empty($nom) && empty($types) && empty($num) && empty($taille) && empty($poids) && empty($talent) && empty($couleur) && empty($image)) {
+    if(empty($username) && empty($contenu) && empty($nom) && empty($typesP) && empty($num) && empty($taille) && empty($poids) && empty($talent) && empty($couleur) && empty($image)) {
         $error = true;
     } 
 
@@ -72,7 +72,7 @@ if(isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_
     if(mb_strlen($nom) > 29) {
         $error = true;
     }
-    if(mb_strlen($types) > 29) {
+    if(mb_strlen($typesP) > 29) {
         $error = true;
     }
     if($num > 151) {
@@ -122,7 +122,7 @@ if(isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_
         $_SESSION['pseudo'] = $username;
         $_SESSION['message'] = $contenu;
         $_SESSION['nom'] = $nom;
-        $_SESSION['types'] = $types;
+        $_SESSION['typesP'] = $typesP;
         $_SESSION['num'] = $num;
         $_SESSION['taille'] = $taille;
         $_SESSION['poids'] = $poids;
@@ -139,13 +139,13 @@ if(isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_
          * Puis je rediriger l'utilisateur vers la page d'accueil
          * et j'exit
          */
-        $query = $db->getPdo()->prepare("INSERT INTO pokedex (username, contenu, date, nom, types, num, taille, poids, talent, couleur,image) VALUES (:username, :contenu, :date, :nom, :types, :num , :taille, :poids, :talent, :couleur, :image)");
+        $query = $db->getPdo()->prepare("INSERT INTO pokedex (username, contenu, date, nom, typesP, num, taille, poids, talent, couleur,image) VALUES (:username, :contenu, :date, :nom, :typesP, :num , :taille, :poids, :talent, :couleur, :image)");
         $query->execute([
             'username' => $username,
             'contenu' => $contenu,
             'date' => $date,
             'nom' => $nom,
-            'types' => $types,
+            'typesP' => $typesP,
             'num' => $num,
             'taille' => $taille,
             'poids' => $poids,
@@ -156,7 +156,7 @@ if(isset($_POST['pseudo'], $_POST['message'], $_POST['nom'], $_POST['types'], $_
         unset($_SESSION['pseudo']);
         unset($_SESSION['message']);
         unset($_SESSION['nom']);
-        unset($_SESSION['types']);
+        unset($_SESSION['typesP']);
         unset($_SESSION['num']);
         unset($_SESSION['taille']);
         unset($_SESSION['poids']);
