@@ -171,7 +171,7 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
           <div class="form-floating">
             <select name="typesP" class="form-select" id="typesP">
             
-              <option selected>Voir les types Phy</option>
+              <option selected>Voir les types Physique</option>
               <option value="Acier">Acier</option>
               <option value="Combat">Combat</option>
               <option value="Insecte">Insecte</option>
@@ -184,6 +184,24 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
               <?= isset($_SESSION['typesP']) ? htmlspecialchars($_SESSION['typesP']) : '' ?>
             </select>
             <label for="floatingSelect">Choissir un type physique</label>
+          </div>
+
+          <label for="types">Le type Special</label>
+          <div class="form-floating">
+            <select name="typesS" class="form-select" id="typesS">
+            
+            <option selected>Voir les types</option>
+              <option value="Acier">Dragon</option>
+              <option value="Combat">Eau</option>
+              <option value="Insecte">Electrik</option>
+              <option value="Normal">Feu</option>
+              <option value="Poison">Glace</option>
+              <option value="Roche">Plante</option>
+              <option value="Sol">Psy</option>
+              <option value="Spectre">Ténèbres</option>
+              <?= isset($_SESSION['typesS']) ? htmlspecialchars($_SESSION['typesS']) : '' ?>
+            </select>
+            <label for="floatingSelect">Choissir un type special</label>
           </div>
 
           <label for="num">Le numéro national</label>
@@ -241,23 +259,22 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
             <label for="floatingSelect">Choissir un type physique</label>
           </div>
 
-          <label for="types">Le type</label>
+          <label for="types">Le type Special</label>
           <div class="form-floating">
-            <select name="typesP" class="form-select" id="typesP">
+            <select name="typesS" class="form-select" id="typesS">
             
               <option selected>Voir les types</option>
-              <option value="Acier">Acier</option>
-              <option value="Combat">Combat</option>
-              <option value="Insecte">Insecte</option>
-              <option value="Normal">Normal</option>
-              <option value="Poison">Poison</option>
-              <option value="Roche">Roche</option>
-              <option value="Sol">Sol</option>
-              <option value="Spectre">Spectre</option>
-              <option value="Vol">Vol</option>
-              <?= isset($_SESSION['typesP']) ? htmlspecialchars($_SESSION['typesP']) : '' ?>
+              <option value="Acier">Dragon</option>
+              <option value="Combat">Eau</option>
+              <option value="Insecte">Electrik</option>
+              <option value="Normal">Feu</option>
+              <option value="Poison">Glace</option>
+              <option value="Roche">Plante</option>
+              <option value="Sol">Psy</option>
+              <option value="Spectre">Ténèbres</option>
+              <?= isset($_SESSION['typesS']) ? htmlspecialchars($_SESSION['typesS']) : '' ?>
             </select>
-            <label for="floatingSelect">Choissir un type physique</label>
+            <label for="floatingSelect">Choissir un type special</label>
           </div>
 
           <label for="num">Le numéro national</label>
@@ -301,6 +318,7 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
           <h5 class="card-title"><?= htmlspecialchars($data->getUsername()) ?></h5>
           <h5 class="card-title"><?= htmlspecialchars($data->getNom()) ?> Nom </h5>
           <h5 class="card-title"><?= htmlspecialchars($data->getTypesP()) ?> Types Physique</h5>
+          <h5 class="card-title"><?= htmlspecialchars($data->getTypesS()) ?> Types Special</h5>
           <h5 class="card-title"><?= htmlspecialchars($data->getNum()) ?> Numéro</h5>
           <h5 class="card-title"><?= htmlspecialchars($data->getTaille()) ?> Taille </h5>
           <h5 class="card-title"><?= htmlspecialchars($data->getPoids()) ?> Poids</h5>

@@ -54,7 +54,16 @@ class PokeLivre
   public function getTypesP(): string {
     return $this->typesP;
   }
+
+  public function setTypesS(string $types)
+  {
+    $this->typesS = $typesS;
+  }
   
+  public function getTypesS(): string {
+    return $this->typesS;
+  }
+
   public function setNum(int $num)
   {
     $this->num = $num;
