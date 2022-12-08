@@ -42,10 +42,10 @@ if (isset($_GET['success']) && $_GET['success'] === '1') {
           PlaySound();
     </script>";
 
-  $success = "Votre message a bien été enregistré";
+  $success = "Votre Pokemon a bien été enregistré dans le Pokedex";
 }
 if (isset($_GET['update']) && $_GET['update'] === '1') {
-  $update = "Votre message a bien été modifié";
+  $update = "Votre Pokemon a bien été modifié";
 }
 if (isset($_GET['error']) && $_GET['error'] === '1') {
   $error = "Erreur formulaire";
@@ -156,11 +156,11 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
       $getData = $query->fetch();
 
     ?>
-      <h1>Modifier le Pokemon</h1>
+      
       <section class="container df-main add">
 
         <div class="df-modal-content ">
-          
+        <h2>Modifier le Pokemon</h2>
           <p>En remplissant ce formulaire</p>
 
 
@@ -176,8 +176,8 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
               </div>
 
               <div class="df-input-box">
-                <label for="message">Votre message</label>
-                <textarea type="text" value="<?= isset($_SESSION['message']) ? htmlspecialchars($_SESSION['message']) : '' ?>" name="message" class="form-control" id="message" placeholder="Votre message"></textarea>
+                <label for="message">La description</label>
+                <textarea type="text" value="<?= isset($_SESSION['message']) ? htmlspecialchars($_SESSION['message']) : '' ?>" name="message" class="form-control" id="message" placeholder="La description"></textarea>
               </div>
 
               <div class="df-input-box">
@@ -250,8 +250,8 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
                 <select name="talent" class="df-select-box" id="typesS">
 
                   <option selected>Voir les talents</option>
-                  <option value="Acier">Dragon</option>
-                  <option value="Combat">Eau</option>
+                  <option value="Absentéisme">Absentéisme</option>
+                  <option value="Absorb Eau	">Absorb Eau	</option>
                   <option value="Insecte">Electrik</option>
                   <option value="Normal">Feu</option>
                   <option value="Poison">Glace</option>
@@ -318,8 +318,8 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
               </div>
 
               <div class="df-input-box">
-                <label for="message">Votre message</label>
-                <textarea type="text" value="<?= isset($_SESSION['message']) ? htmlspecialchars($_SESSION['message']) : '' ?>" name="message" class="form-control" id="message" placeholder="Votre message"></textarea>
+                <label for="message">La description</label>
+                <textarea type="text" value="<?= isset($_SESSION['message']) ? htmlspecialchars($_SESSION['message']) : '' ?>" name="message" class="form-control" id="message" placeholder="La description"></textarea>
               </div>
 
               <div class="df-input-box">
@@ -392,14 +392,83 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
                 <select name="talent" class="df-select-box" id="typesS">
 
                   <option selected>Voir les talents</option>
-                  <option value="Acier">Dragon</option>
-                  <option value="Combat">Eau</option>
-                  <option value="Insecte">Electrik</option>
-                  <option value="Normal">Feu</option>
-                  <option value="Poison">Glace</option>
-                  <option value="Roche">Plante</option>
-                  <option value="Sol">Psy</option>
-                  <option value="Spectre">Ténèbres</option>
+                  <option value="Absentéisme">Absentéisme</option>
+                  <option value="Absorb Eau	">Absorb Eau	</option>
+                  <option value="Absorb Volt	">Absorb Volt	</option>
+                  <option value="Agitation">Agitation</option>
+                  <option value="Air Lock">Air Lock	</option>
+                  <option value="Anti-Bruit">Anti-Bruit	</option>
+                  <option value="Armumagma">Armumagma	</option>
+                  <option value="Armurbaston">Armurbaston</option>
+                  <option value="Attention">Attention</option>
+                  <option value="Benêt">Benêt</option>
+                  <option value="Brasier">Brasier</option>
+                  <option value="Cacophonie">Cacophonie</option>
+                  <option value="Calque">Calque</option>
+                  <option value="Chlorophylle">Chlorophylle</option>
+                  <option value="Ciel Gris">Ciel Gris</option>
+                  <option value="Coloforce">Coloforce</option>
+                  <option value="Coque Armure">Coque Armure</option>
+                  <option value="Corps Ardent">Corps Ardent</option>
+                  <option value="Corps Sain">Corps Sain</option> 
+                  <option value="Crachin">Crachin</option>
+                  <option value="Cran">Cran</option>
+                  <option value="Cuvette">Cuvette</option>
+                  <option value="Déguisement">Déguisement</option>
+                  <option value="Écaille Spéciale">Écaille Spéciale</option>
+                  <option value="Échauffement">Échauffement</option>
+                  <option value="Écran Fumée">Écran Fumée</option>
+                  <option value="Écran Poudre">Écran Poudre</option>
+                  <option value="Engrais">Engrais</option>
+                  <option value="Esprit Vital">Esprit Vital</option>
+                  <option value="Essaim">Essaim</option>
+                  <option value="Fermeté">Fermeté</option>
+                  <option value="Force Pure">Force Pure</option>
+                  <option value="Fuite">Fuite</option>
+                  <option value="Garde Mystik">Garde Mystik</option>
+                  <option value="Glissade">Glissade</option>
+                  <option value="Glue">Glue</option>
+                  <option value="Hyper Cutter">Hyper Cutter</option>
+                  <option value="Ignifu-Voile">Ignifu-Voile</option>
+                  <option value="Insomnia">Insomnia</option>
+                  <option value="Intimidation">Intimidation</option>
+                  <option value="Isograisse">Isograisse</option>
+                  <option value="Joli Sourire">Joli Sourire</option>
+                  <option value="Lévitation">Lévitation</option>
+                  <option value="Lumiattirance">Lumiattirance</option>
+                  <option value="Magnépiège">Magnépiège</option>
+                  <option value="Marque Ombre">Marque Ombre</option>
+                  <option value="Matinal">Matinal</option>
+                  <option value="Médic Nature">Médic Nature</option>
+                  <option value="Météo">Météo</option>
+                  <option value="Minus">Minus</option>
+                  <option value="Moiteur">Moiteur</option>
+                  <option value="Mue">Mue</option>
+                  <option value="Œil Composé">Œil Composé</option>
+                  <option value="Paratonnerre">Paratonnerre</option>
+                  <option value="Peau Dure">Peau Dure</option>
+                  <option value="Piège">Piège</option>
+                  <option value="Plus">Plus</option>
+                  <option value="Point Poison">Point Poison</option>
+                  <option value="Pose Spore">Pose Spore</option>
+                  <option value="Pression">Pression</option>
+                  <option value="Puanteur">Puanteur</option>
+                  <option value="Ramassage">Ramassage</option>
+                  <option value="Regard Vif">Regard Vif</option>
+                  <option value="Sable Volant">Sable Volant</option>
+                  <option value="Sécheresse">Sécheresse</option>
+                  <option value="Sérénité">Sérénité</option>
+                  <option value="Statik">Statik</option>
+                  <option value="Suintement">Suintement</option>
+                  <option value="Synchro">Synchro</option>
+                  <option value="Tempo Perso">Tempo Perso</option>
+                  <option value="Tête de Roc">Tête de Roc</option>
+                  <option value="Torche">Torche</option>
+                  <option value="Torrent">Torrent</option>
+                  <option value="Turbo">Turbo</option>
+                  <option value="Vaccin">Vaccin</option>
+                  <option value="Ventouse">Ventouse</option>
+                  <option value="Voile Sable">Voile Sable</option>
                   <?= isset($_SESSION['talent']) ? (is_numeric($_SESSION['talent'])) : '' ?>
                 </select>
 
@@ -443,22 +512,22 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
   <!-- Je récupère le nombre de message -->
   <h2>Les Pokemon existants (<?= $resultPagination->nbr ?>) :</h2>
   <div class="pag-pok">
-      Pagination
-      <nav>
-        <ul class="pagination">
-          <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
-          <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-            <a href="./?page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
-          </li>
-          <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
-          <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-            <a href="./?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  
-  <div class="card-pok">
+    Pagination
+    <nav>
+      <ul class="pagination">
+        <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
+        <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+          <a href="./?page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
+        </li>
+        <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
+        <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+          <a href="./?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="card-pok rounded-bottom">
 
     <?php
     if ($resultPagination->nbr === 0) {
@@ -475,21 +544,33 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
        */
       foreach ($result as $data) {
       ?>
-        <div class="card mb-4">
-          <div class="card-body">
-            <h5 class="card-title"><?= htmlspecialchars($data->getUsername()) ?></h5>
-            <h5 class="card-title"><?= htmlspecialchars($data->getNom()) ?> Nom </h5>
-            <h5 class="card-title"><?= htmlspecialchars($data->getTypesP()) ?> Types Physique</h5>
-            <h5 class="card-title"><?= htmlspecialchars($data->getTypesS()) ?> Types Special</h5>
-            <h5 class="card-title"><?= htmlspecialchars($data->getNum()) ?> Numéro</h5>
-            <h5 class="card-title"><?= htmlspecialchars($data->getTaille()) ?> Taille </h5>
-            <h5 class="card-title"><?= htmlspecialchars($data->getPoids()) ?> Poids</h5>
-            <h5 class="card-title"><?= htmlspecialchars($data->getTalent()) ?> Talent</h5>
-            <h5 class="card-title"><?= htmlspecialchars($data->getCouleur()) ?> Couleur</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Le <?= $data->getDate()->format('d/m/Y à H:i:s') ?></h6>
-            <p class="card-text"> <?= htmlspecialchars($data->getContenu()) ?></p>
-            <img src="image/<?= $data->getImage() ?>" alt="image" width="200px">
+        <div class="bg-grey">
+          <div class=" card-result rounded-bottom">
 
+            
+              <h5 class="card-title">Créateur : <?= htmlspecialchars($data->getUsername()) ?></h5>
+              
+              <h5 class="card-title">Nom : <?= htmlspecialchars($data->getNom()) ?></h5>
+              
+              <h5 class="card-title">Type Physique : <?= htmlspecialchars($data->getTypesP()) ?></h5>
+              
+              <h5 class="card-title">Type Spéciale : <?= htmlspecialchars($data->getTypesS()) ?></h5>
+              
+              <h5 class="card-title">Numéro National: <?= htmlspecialchars($data->getNum()) ?></h5>
+              
+              <h5 class="card-title">Taille : <?= htmlspecialchars($data->getTaille()) ?></h5>
+              
+              <h5 class="card-title">Poids : <?= htmlspecialchars($data->getPoids()) ?></h5>
+              
+              <h5 class="card-title">Talent : <?= htmlspecialchars($data->getTalent()) ?></h5>
+            
+              <h5 class="card-title">Couleur : <?= htmlspecialchars($data->getCouleur()) ?></h5>
+          
+              <h6 class="card-subtitle mb-2 text-muted">Le <?= $data->getDate()->format('d/m/Y à H:i:s') ?></h6>
+              <h4> Description du Pokemon </h4>
+              <p class="card-text"> <?= htmlspecialchars($data->getContenu()) ?></p>
+              <div><img src="image/<?= $data->getImage() ?>" alt="image" width="200px"></div>
+              
 
 
 
@@ -502,7 +583,7 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
       }
     }
     ?>
-    
+
 
   </div>
 </main>
