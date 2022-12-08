@@ -186,7 +186,7 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
               </div>
 
 
-              <label for="types">Le type</label>
+              <label for="types">Le type Physique</label>
               <div class="df-select-box">
                 <select name="typesP" class="df-select-box" id="typesP">
 
@@ -397,7 +397,7 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
               </div>
 
 
-              <label for="types">Le type</label>
+              <label for="types">Le type Physique</label>
               <div class="df-select-box">
                 <select name="typesP" class="df-select-box" id="typesP">
 
