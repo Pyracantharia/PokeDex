@@ -212,14 +212,14 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
                 <select name="typesS" class="df-select-box" id="typesS">
 
                   <option selected>Voir les types spéciaux</option>
-                  <option value="Acier">Dragon</option>
-                  <option value="Combat">Eau</option>
-                  <option value="Insecte">Electrik</option>
-                  <option value="Normal">Feu</option>
-                  <option value="Poison">Glace</option>
-                  <option value="Roche">Plante</option>
-                  <option value="Sol">Psy</option>
-                  <option value="Spectre">Ténèbres</option>
+                  <option value="Dragon">Dragon</option>
+                  <option value="Eau">Eau</option>
+                  <option value="Electrik">Electrik</option>
+                  <option value="Feu">Feu</option>
+                  <option value="Glace">Glace</option>
+                  <option value="Plante">Plante</option>
+                  <option value="Psy">Psy</option>
+                  <option value="Ténèbres">Ténèbres</option>
                   <?= isset($_SESSION['typesS']) ? htmlspecialchars($_SESSION['typesS']) : '' ?>
                 </select>
 
@@ -423,16 +423,18 @@ $result = $query->fetchAll(PDO::FETCH_CLASS, PokeLivre::class);
                 <select name="typesS" class="df-select-box" id="typesS">
 
                   <option selected>Voir les types spéciaux</option>
-                  <option value="Acier">Dragon</option>
-                  <option value="Combat">Eau</option>
-                  <option value="Insecte">Electrik</option>
-                  <option value="Normal">Feu</option>
-                  <option value="Poison">Glace</option>
-                  <option value="Roche">Plante</option>
-                  <option value="Sol">Psy</option>
-                  <option value="Spectre">Ténèbres</option>
+                  <option value="Dragon">Dragon</option>
+                  <option value="Eau">Eau</option>
+                  <option value="Electrik">Electrik</option>
+                  <option value="Feu">Feu</option>
+                  <option value="Glace">Glace</option>
+                  <option value="Plante">Plante</option>
+                  <option value="Psy">Psy</option>
+                  <option value="Ténèbres">Ténèbres</option>
                   <?= isset($_SESSION['typesS']) ? htmlspecialchars($_SESSION['typesS']) : '' ?>
                 </select>
+
+              </div>
 
               </div>
 
