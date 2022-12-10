@@ -222,6 +222,7 @@ html.df-modal-active {
 .df-form input[type="text"],
 .df-form input[type="number"],
 .df-form input[type="file"],
+
 .df-form textarea[type="text"],
 .df-form textarea[type="number"],
 .df-form textarea[type="file"],
@@ -353,10 +354,12 @@ html.df-modal-active {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
+  
 }
 .bg-grey {
   
   background-color: #848484;
+  
 }
 .font-title{
   font-family: 'Zen Dots', cursive;
